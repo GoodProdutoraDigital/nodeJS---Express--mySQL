@@ -4,7 +4,7 @@ const seqModel = require('../models/seqModel')
 
 const { admin } = require('../helpers/_acess')
 
-router.get('/', (req, res) => {
+router.get('/', admin, (req, res) => {
     res.render('admin/index')
 })
 
@@ -29,7 +29,8 @@ router.post('/new/user', (req, res) => {
         
         const novoUser = {
             user: req.body.login,
-            pass: req.body.senha
+            pass: req.body.senha,
+            isAdm: 0 
         }
         seqModel.insert.create(novoUser).then(() => {
             req.flash('success_msg', 'Novo usuario criado com Sucesso !!')

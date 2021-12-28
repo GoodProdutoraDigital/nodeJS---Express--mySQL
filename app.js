@@ -62,7 +62,7 @@ app.get('/', (req, res) => {
     seqModel.insert.findAll({order: [['id', 'DESC']]}).then((select) => {
         res.render('home/index', {select: select})
     }).catch(() => {
-        res.flash('error_msg', 'Erro ao listar usuários')
+        req.flash('error_msg', 'Erro ao listar usuários')
     })
 })
 

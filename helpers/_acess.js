@@ -1,9 +1,9 @@
 module.exports = {
     admin: function(req, res, next){
-        if(req.isAuthenticated()){
+        if(req.isAuthenticated() && req.user.isAdm == 1){
             return next()
         }
-        req.flash('error_msg', 'Faça login para acessar')
+        req.flash('error_msg', 'Necessário nivel administrador')
         res.redirect('/')
     }
 }
