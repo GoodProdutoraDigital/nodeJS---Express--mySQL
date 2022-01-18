@@ -66,11 +66,6 @@ app.get('/', (req, res) => {
     })
 })
 
-//definir 404
-app.get('/404', (req, res) => {
-    res.render('home/404')
-})
-
 //definir conjunto de rotas
 const admin = require('./routes/admin')
 const user = require('./routes/user')
@@ -78,7 +73,4 @@ app.use('/admin', admin)
 app.use('/user', user)
 
 //config listen
-const PORT = process.env.PORT || 3000
-app.listen(PORT, () => {
- console.log('executando servidor em http://localhost:' + PORT)
-})
+app.listen(3000)

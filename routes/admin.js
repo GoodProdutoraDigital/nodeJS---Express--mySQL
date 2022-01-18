@@ -33,7 +33,7 @@ router.post('/new/user', (req, res) => {
             isAdm: 0 
         }
         seqModel.insert.create(novoUser).then(() => {
-            req.flash('success_msg', 'Novo usuario criado com Sucesso !!')
+            req.flash('success_msg', 'Novo usuário criado com Sucesso !!')
             res.redirect('/admin/new')
         }).catch((error) => {
             req.flash('error_msg', 'Erro ao criar usuário')
@@ -53,7 +53,7 @@ router.get('/update/:id', (req, res) => {
 router.post('/update/user/', (req, res) => {
     seqModel.insert.findOne({where: {'id': req.body.id}}).then((Update) => {
         
-        Update.id = req.body.id
+        Update.id = req.body.id,
         Update.user = req.body.login,
         Update.pass = req.body.senha
 
